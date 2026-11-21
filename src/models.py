@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 @dataclass
 class RawResponse:
     domain: str
-    final_url: str
+    final_url: str = ""
     status_code: int | None = None
     headers: dict[str, str] = field(default_factory=dict)
     cookies: dict[str, str] = field(default_factory=dict)
