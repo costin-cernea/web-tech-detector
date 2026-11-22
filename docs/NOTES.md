@@ -10,7 +10,7 @@ I created a small program dataset_test.py to see the columns, number of rows and
 
 --------------
 
-Now, i created fetcher.py and i will use urllib for urlparse and urlunparse (that will help me to break the link in pieces and to reasable with the correct format) and httpx to make a request and see if that link uses http or https.
+Now, i created fetcher.py and i will use urllib for urlparse (that will help me to break the link in pieces and to reasable with the correct format) and httpx to make a request and see if that link uses http or https.
 
 My first solution was this:
 
@@ -49,3 +49,7 @@ HTTPX response attributes:
 .headers -> response headers
 .cookies -> cookies received
 .text -> html content
+
+------------------
+
+Initial domain fetching pipeline complete. I also tested with a tiny code to see if objects are created. The entire process (because of those 200 domain) take a while and the terminal is frozen for about ~ 3,3 minutes, so its a good idea to add a process loading message later.
