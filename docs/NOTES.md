@@ -52,4 +52,13 @@ HTTPX response attributes:
 
 ------------------
 
-Initial domain fetching pipeline complete. I also tested with a tiny code to see if objects are created. The entire process (because of those 200 domain) take a while and the terminal is frozen for about ~ 3,3 minutes, so its a good idea to add a process loading message later.
+Initial domain fetching pipeline complete. I also tested with a tiny code to see if objects are created (i also like that "final_url" generates the exact link after redirects, so the fial link can be a complete different link from the provided domain). The entire process (because of those 200 domain) take a while and the terminal is frozen for about ~ 3,3 minutes, so its a good idea to add a process loading message later.
+
+------------------------
+
+
+I created extractor.py with extract_signals function. I've been modifying the code several times and src.models.py -> PageSignals -> meta_tags attribute as well. The reason: i needed to create a dictionary with key[str] and value[list str] to extract more information. Metatags i see contain different key names ("name", "property") and i wanted to store all meta_tags, so i've created a content list to not overwrite useful information with just a simple dictionary. 
+
+I tested the function with a code created in tests.test_extractor.py. The results are good. 
+
+Also, i wanted to create tests.test_fetcher.py as well because the first time i tested those function in terminal only.
