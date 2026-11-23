@@ -18,7 +18,7 @@ class PageSignals:
     headers: dict[str, str]
     cookies: dict[str, str]
     script_srcs: list[str]
-    meta_tags: dict[str, str]
+    meta_tags: dict[str, list[str]]
     html: str
 
 
