@@ -71,7 +71,7 @@ class PageSignals:
     headers: dict[str, str]      # Lowercased header keys/values
     cookies: dict[str, str]      # Cookie names and values
     script_srcs: list[str]       # All <script src="..."> URLs
-    meta_tags: dict[str, str]    # Lowercased meta name -> content
+    meta_tags: dict[str, list[str]]    # Lowercased meta name -> list of content
     html: str                    # Raw HTML for body/pattern checks
 
 # Arrow 4: Output of Rule Matcher -> Input to Exporter (saved to results.json)
