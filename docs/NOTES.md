@@ -62,3 +62,7 @@ I created extractor.py with extract_signals function. I've been modifying the co
 I tested the function with a code created in tests.test_extractor.py. The results are good. 
 
 Also, i wanted to create tests.test_fetcher.py as well because the first time i tested those function in terminal only.
+
+--------------------------
+
+I've created detector.py and tech_rules.py . Here, i've created a very small tech_rule and the unfinished logic for detect_tech() just to see how works this prototype. It seems to give me the expected output.
