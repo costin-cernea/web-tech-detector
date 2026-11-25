@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
-from src.models import RawResponse, PageSignals
+from src.models import RawResponse, ProcessedResponse
 
 
-def extract_signals(responses: list[RawResponse]) -> list[PageSignals]:
+def extract_signals(responses: list[RawResponse]) -> list[ProcessedResponse]:
     results = []
     for response in responses:
         if response.error is not None:
@@ -21,7 +21,7 @@ def extract_signals(responses: list[RawResponse]) -> list[PageSignals]:
                 value = content.strip()
                 meta_tags.setdefault(key, []).append(value)
 
-        results.append(PageSignals(domain=response.domain, 
+        results.append(ProcessedResponse(domain=response.domain, 
                                    headers={key.lower(): value for key, value in response.headers.items()}, 
                                    cookies=response.cookies,
                                    script_srcs=[script.get("src") for script in scripts if script.get("src")],

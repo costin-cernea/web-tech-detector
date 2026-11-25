@@ -36,7 +36,7 @@ flowchart LR
 
     subgraph CORE ["Pure Core"]
         B -->|RawResponse| C["Extract Signals<br/>(Headers, Scripts, Meta, Cookies)"]
-        C -->|PageSignals| D["Match Against Tech Rules"]
+        C -->|ProcessedSignals| D["Match Against Tech Rules"]
     end
 
     subgraph EDGE_OUT ["Edge: I/O"]
@@ -66,7 +66,7 @@ class RawResponse:
 
 # Arrow 3: Output of Extractor -> Input to Rule Matcher
 @dataclass
-class PageSignals:
+class ProcessedSignals:
     domain: str
     headers: dict[str, str]      # Lowercased header keys/values
     cookies: dict[str, str]      # Cookie names and values

@@ -13,13 +13,14 @@ class RawResponse:
 
 
 @dataclass
-class PageSignals:
+class ProcessedResponse:
     domain: str
     headers: dict[str, str]
     cookies: dict[str, str]
     script_srcs: list[str]
     meta_tags: dict[str, list[str]]
     html: str
+    error: str | None = None
 
 
 

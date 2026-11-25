@@ -66,3 +66,18 @@ Also, i wanted to create tests.test_fetcher.py as well because the first time i 
 --------------------------
 
 I've created detector.py and tech_rules.py . Here, i've created a very small tech_rule and the unfinished logic for detect_tech() just to see how works this prototype. It seems to give me the expected output.
+
+---------------------------
+Design decision: Handling failed responses in the processing pipeline.
+
+The initial design used PageSignals to represent succesfully extracted signals from HTTP responsed. Failed responses were skipped during extraction.
+During development, especially in detector.py when i needed to return the DomainResult object , I identified that this approach could result in domains being lost from processing pipeline, preventing a complete result from being generated.
+
+I consider this solution:
+
+- I change the class name from PageSignals to ProcessedResponse (because I want to have a name that fits better its porpose. PageSignals suggests that the object contains only valid extracted signals)
+
+- I change extract_signals() so that it also creates objects containing the error information when error.response is not None. 
+
+I also considered keeping PageSignals exactly how it was, but i had to create a tuple return for detect_signals() and handle two lists, that for my project and the desired processing pipeline was not the best approach in my opinion.
+
