@@ -66,7 +66,7 @@ class RawResponse:
 
 # Arrow 3: Output of Extractor -> Input to Rule Matcher
 @dataclass
-class ProcessedSignals:
+class ProcessedResponse:
     domain: str
     headers: dict[str, str]      # Lowercased header keys/values
     cookies: dict[str, str]      # Cookie names and values
