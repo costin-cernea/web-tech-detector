@@ -96,3 +96,6 @@ This is the process: list[DomainResults] -> convert_results_to_dict() using asdi
 The test looks fine.
 
 ---------------------------
+
+Added a summary output in terminal that contains total, successful and failed domains, the number of unique techs and the total of all techs detected across all domains.
+
