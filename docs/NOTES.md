@@ -99,3 +99,5 @@ The test looks fine.
 
 Added a summary output in terminal that contains total, successful and failed domains, the number of unique techs and the total of all techs detected across all domains.
 
+----------------
+I finished the detector function (detect_tech()) so it can handle all the different types of signals we extract, including dictionaries, lists, strings, and meta tags. The challenging part was making the function work with different data structures, which required adding several if and elif conditions and handling each case differently. This made the function longer, but now it can search through all the extracted signals and store the matching evidence for each detected technology.
