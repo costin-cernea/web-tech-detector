@@ -84,3 +84,15 @@ I also considered keeping PageSignals exactly how it was, but i had to create a 
 ------------------
 
 Initial detection logic was created. We return a list of DomainResult objects, and thanks to the previous change, we now include both success and failed responses for the final result, with their corresponding status.
+
+------------------
+
+I have the domain results in raw format, so I need to export them to a json file.
+
+This is the process: list[DomainResults] -> convert_results_to_dict() using asdict() in a for loop trough the whole list -> return dict_results -> 
+
+-> def save_results_to_json() using the first function and then i write a json file using json.dump. 
+
+The test looks fine.
+
+---------------------------
