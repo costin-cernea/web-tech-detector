@@ -3,36 +3,46 @@ from src.models import ProcessedResponse, Proof, DetectedTech, DomainResult
 from src.tech_rules import TECH_RULES
 
 
-def detect_tech(signals: ProcessedResponse) -> DomainResult:
-    detected_techs = []
-    for tech in TECH_RULES:
-        proofs = []
-        for rule in tech["rules"]:
-            source = rule["source"]
-            key = rule["key"]
-            pattern = rule["pattern"]
-            value = getattr(signals, source).get(key)
-            if value is not None:
-                match = re.search(pattern, value)
-                if match:
-                    print("Technology detected!")
-                    proofs.append(Proof(source=source,
-                                        matched_value=value,
-                                        pattern=pattern,
-                                        key=key))
-        if proofs:
-            detected_techs.append(DetectedTech(name=tech["name"], categories=tech["categories"], proofs=proofs))
+def detect_tech(responses: list[ProcessedResponse]) -> list[DomainResult]:
+    results = []
+    for response in responses:
+        if response.error is not None:
+            results.append(DomainResult(domain=response.domain,
+                                        status="failed",
+                                        error=response.error))
+            continue
+        detected_techs = []
+        for tech in TECH_RULES:
+            proofs = []
+            for rule in tech["rules"]:
+                source = rule["source"]
+                key = rule["key"]
+                pattern = rule["pattern"]
 
-    return DomainResult(domain=signals.domain, detected_techs=detected_techs)
+                value = getattr(response, source).get(key)
 
+                if value is not None:
+                    match = re.search(pattern, value)
+                    if match:
+                        proofs.append(Proof(
+                            source=source,
+                            matched_value=value,
+                            pattern=pattern,
+                            key=key
+                        ))
 
-mock_signals = ProcessedResponse(domain="example.com",
-                           headers={"server": "nginx/1.24.0"},
-                           cookies={},
-                           script_srcs=[],
-                           meta_tags={},
-                           html="")
+            if proofs:
+                detected_techs.append(DetectedTech(
+                    name=tech["name"],
+                    categories=tech["categories"],
+                    proofs=proofs
+                ))
 
-result = detect_tech(mock_signals)
-print(result)
+        results.append(DomainResult(domain=response.domain,
+                                    status="success",
+                                    technologies=detected_techs,
+                                    error=None))
+
+    return results
+
 

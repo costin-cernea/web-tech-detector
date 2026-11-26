@@ -81,3 +81,6 @@ I consider this solution:
 
 I also considered keeping PageSignals exactly how it was, but i had to create a tuple return for detect_signals() and handle two lists, that for my project and the desired processing pipeline was not the best approach in my opinion.
 
+------------------
+
+Initial detection logic was created. We return a list of DomainResult objects, and thanks to the previous change, we now include both success and failed responses for the final result, with their corresponding status.
