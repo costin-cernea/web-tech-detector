@@ -33,13 +33,10 @@ failed_response = RawResponse(
     error="Connection timed out"
 )
 
-results = extract_signals([response])
-results_failed = extract_signals([failed_response])
+results = extract_signals([response, failed_response])
 
 print("Results:", results)
 print("Type:", type(results))
 
 
-print(results[0])
-
-print("Results Failed:", results_failed)
+print("Success: ", results[0], "\n", "Failed: ", results[1])

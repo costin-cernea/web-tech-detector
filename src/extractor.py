@@ -6,6 +6,13 @@ def extract_signals(responses: list[RawResponse]) -> list[ProcessedResponse]:
     results = []
     for response in responses:
         if response.error is not None:
+            results.append(ProcessedResponse(domain=response.domain,
+                                             headers={},
+                                             cookies={},
+                                             script_srcs=[],
+                                             meta_tags={},
+                                             html="",
+                                             error=response.error))
             continue
         soup = BeautifulSoup(response.html, "html.parser")
         scripts = soup.find_all("script")
@@ -26,5 +33,6 @@ def extract_signals(responses: list[RawResponse]) -> list[ProcessedResponse]:
                                    cookies=response.cookies,
                                    script_srcs=[script.get("src") for script in scripts if script.get("src")],
                                    meta_tags=meta_tags,
-                                   html=response.html))
+                                   html=response.html,
+                                   error=None))
     return results
