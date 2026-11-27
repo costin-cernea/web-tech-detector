@@ -101,3 +101,7 @@ Added a summary output in terminal that contains total, successful and failed do
 
 ----------------
 I finished the detector function (detect_tech()) so it can handle all the different types of signals we extract, including dictionaries, lists, strings, and meta tags. The challenging part was making the function work with different data structures, which required adding several if and elif conditions and handling each case differently. This made the function longer, but now it can search through all the extracted signals and store the matching evidence for each detected technology.
+
+-------------------
+
+I continued working on the website technology detector by adding more detection rules for different technologies and organizing them into separate files based on their categories. Since the number of rules was growing, I decided to split them into multiple files and then combine them into one central file so that the detector can iterate through all of them. I also reorganized the project structure to make it easier to maintain and add new rules in the future. After these changes, I ran the program on a dataset containing 200 domains, and it successfully processed most of them, detecting 67 unique technologies and generating 621 detections. I also added a waiting message to the terminal to make it clearer that the program is running while the websites are being processed.

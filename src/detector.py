@@ -1,6 +1,6 @@
 import re
 from src.models import ProcessedResponse, Proof, DetectedTech, DomainResult
-from src.tech_rules import TECH_RULES
+from src.rules.tech_rules import TECH_RULES
 
 
 def detect_tech(responses: list[ProcessedResponse]) -> list[DomainResult]:

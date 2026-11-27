@@ -11,4 +11,9 @@ def run_pipeline(dataset_path: str, output_filename: str):
     print_summary(domain_results)
 
 if __name__ == "__main__":
-    run_pipeline("data/domains.csv", "results.json")
+    print("Starting website technology detection...")
+    print("Please wait while websites are being processed.\n")
+
+    run_pipeline("data/part-00000-66e0628d-2c7f-425a-8f5b-738bcd6bf198-c000.snappy.parquet", "results.json")
+
+    print("\nProcessing completed!")
