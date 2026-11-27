@@ -89,7 +89,7 @@ TECH_RULES = [
             {
                 "source": "script_srcs",
                 "key": None,
-                "pattern": r"(?:matomo|piwik)\.js"
+                "pattern": r"/(?:matomo|piwik)\.js(?:\?|$)"
             },
             {
                 "source": "script_srcs",
@@ -416,12 +416,12 @@ TECH_RULES = [
             },
             {
                 "source": "meta_tags",
-                "key": "WT.ti",
+                "key": "wt.ti",
                 "pattern": r".+"
             },
             {
                 "source": "meta_tags",
-                "key": "WT.cg_n",
+                "key": "wt.cg_n",
                 "pattern": r".+"
             }
         ]
@@ -475,22 +475,6 @@ TECH_RULES = [
                 "source": "html",
                 "key": None,
                 "pattern": r"etracker\.com/code/e\.js"
-            }
-        ]
-    },
-    {
-        "name": "Siteimprove Analytics",
-        "categories": ["Analytics"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"siteimproveanalytics\.com/js/siteanalyze_\d+\.js"
-            },
-            {
-                "source": "cookies",
-                "key": "nmstat",
-                "pattern": r".+"
             }
         ]
     },
@@ -2581,22 +2565,6 @@ TECH_RULES = [
         ]
     },
     {
-        "name": "Ahrefs Web Analytics",
-        "categories": ["Analytics", "Privacy Analytics"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"analytics\.ahrefs\.com/analytics\.js"
-            },
-            {
-                "source": "html",
-                "key": None,
-                "pattern": r"analytics\.ahrefs\.com/analytics\.js"
-            }
-        ]
-    },
-    {
         "name": "Seline Analytics",
         "categories": ["Analytics", "Privacy Analytics"],
         "rules": [
@@ -3065,27 +3033,6 @@ TECH_RULES = [
         ]
     },
     {
-        "name": "Klaviyo",
-        "categories": ["Analytics", "Marketing Analytics"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"static\.klaviyo\.com/onsite/js/klaviyo\.js"
-            },
-            {
-                "source": "cookies",
-                "key": "__kla_id",
-                "pattern": r".+"
-            },
-            {
-                "source": "html",
-                "key": None,
-                "pattern": r"_learnq\.push\("
-            }
-        ]
-    },
-    {
         "name": "Meta Pixel",
         "categories": ["Analytics", "Conversion Analytics"],
         "rules": [
@@ -3457,43 +3404,6 @@ TECH_RULES = [
         ]
     },
     {
-        "name": "ActiveCampaign Site Tracking",
-        "categories": ["Analytics", "Marketing Analytics"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"diffuser-cdn\.app-us1\.com/diffuser/diffuser\.js"
-            },
-            {
-                "source": "html",
-                "key": None,
-                "pattern": r"vgo\(['\"]setAccount['\"]"
-            }
-        ]
-    },
-    {
-        "name": "Brevo Tracker",
-        "categories": ["Analytics", "Marketing Analytics"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"sibautomation\.com/sa\.js"
-            },
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"cdn\.brevo\.com/js/sdk-loader\.js"
-            },
-            {
-                "source": "cookies",
-                "key": "sib_cuid",
-                "pattern": r".+"
-            }
-        ]
-    },
-    {
         "name": "Customer.io",
         "categories": ["Analytics", "Marketing Analytics"],
         "rules": [
@@ -3516,22 +3426,6 @@ TECH_RULES = [
                 "source": "html",
                 "key": None,
                 "pattern": r"_cio\.push\("
-            }
-        ]
-    },
-    {
-        "name": "Braze",
-        "categories": ["Analytics", "Marketing Analytics"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"js\.appboycdn\.com/web-sdk/"
-            },
-            {
-                "source": "html",
-                "key": None,
-                "pattern": r"braze\.initialize\("
             }
         ]
     },
@@ -3886,6 +3780,11 @@ TECH_RULES = [
                 "source": "script_srcs",
                 "key": None,
                 "pattern": r"cdn\.scarabresearch\.com/js/"
+            },
+            {
+                "source": "script_srcs",
+                "key": None,
+                "pattern": r"static\.scarabresearch\.com/"
             },
             {
                 "source": "cookies",
@@ -4472,7 +4371,7 @@ TECH_RULES = [
             {
                 "source": "html",
                 "key": None,
-                "pattern": r"branch\.init\("
+                "pattern": r"branch\.init\(['\"]key_(?:live|test)_"
             }
         ]
     },

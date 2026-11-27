@@ -179,11 +179,6 @@ TECH_RULES = [
                 "source": "headers",
                 "key": "x-nf-request-id",
                 "pattern": r".+"
-            },
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"\.netlify\.app/"
             }
         ]
     },
@@ -220,7 +215,7 @@ TECH_RULES = [
             {
                 "source": "headers",
                 "key": "server",
-                "pattern": r"^Google Frontend$|^UploadServer$|^gws$"
+                "pattern": r"^Google Frontend$"
             },
             {
                 "source": "headers",
@@ -249,11 +244,6 @@ TECH_RULES = [
                 "pattern": r".+"
             },
             {
-                "source": "headers",
-                "key": "x-ms-request-id",
-                "pattern": r".+"
-            },
-            {
                 "source": "cookies",
                 "key": "ARRAffinity",
                 "pattern": r".+"
@@ -278,11 +268,6 @@ TECH_RULES = [
                 "source": "headers",
                 "key": "nel",
                 "pattern": r"heroku-nel"
-            },
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"\.herokuapp\.com/"
             }
         ]
     },
@@ -294,11 +279,6 @@ TECH_RULES = [
                 "source": "headers",
                 "key": "server",
                 "pattern": r"\bnginx(?:/[\d.]+)?\b"
-            },
-            {
-                "source": "headers",
-                "key": "x-nginx-cache",
-                "pattern": r".+"
             }
         ]
     },
@@ -309,12 +289,12 @@ TECH_RULES = [
             {
                 "source": "headers",
                 "key": "server",
-                "pattern": r"\bApache(?:/[\d.]+)?\b"
+                "pattern": r"\bApache(?!-Coyote)(?:/[\d.]+)?\b"
             },
             {
                 "source": "headers",
                 "key": "x-powered-by",
-                "pattern": r"\bApache(?:/[\d.]+)?\b"
+                "pattern": r"\bApache(?!-Coyote)(?:/[\d.]+)?\b"
             }
         ]
     },

@@ -28,13 +28,13 @@ TECH_RULES = [
             {
                 "source": "meta_tags",
                 "key": "yandex-verification",
-                "pattern": r"^[a-f0-9]+$"
+                "pattern": r"^[a-f0-9]{16,}$"
             }
         ]
     },
     {
         "name": "Ahrefs",
-        "categories": ["SEO"],
+        "categories": ["SEO", "Analytics"],
         "rules": [
             {
                 "source": "meta_tags",
@@ -243,11 +243,6 @@ TECH_RULES = [
                 "pattern": r".+"
             },
             {
-                "source": "meta_tags",
-                "key": "og:type",
-                "pattern": r".+"
-            },
-            {
                 "source": "html",
                 "key": None,
                 "pattern": r"<meta\b[^>]*property=[\"']og:(?:title|type|url|image)[\"']"
@@ -330,7 +325,7 @@ TECH_RULES = [
     },
     {
         "name": "Siteimprove",
-        "categories": ["SEO"],
+        "categories": ["SEO", "Analytics"],
         "rules": [
             {
                 "source": "script_srcs",

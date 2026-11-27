@@ -1,7 +1,7 @@
 TECH_RULES = [
     {
         "name": "Klaviyo",
-        "categories": ["Marketing"],
+        "categories": ["Marketing", "Analytics"],
         "rules": [
             {
                 "source": "script_srcs",
@@ -95,7 +95,7 @@ TECH_RULES = [
     },
     {
         "name": "Braze",
-        "categories": ["Marketing"],
+        "categories": ["Marketing", "Analytics"],
         "rules": [
             {
                 "source": "script_srcs",
@@ -137,7 +137,7 @@ TECH_RULES = [
     },
     {
         "name": "ActiveCampaign",
-        "categories": ["Marketing"],
+        "categories": ["Marketing", "Analytics"],
         "rules": [
             {
                 "source": "script_srcs",
@@ -192,11 +192,6 @@ TECH_RULES = [
                 "pattern": r"collect\.igodigital\.com/"
             },
             {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"cdn\.evgnet\.com/beacon/"
-            },
-            {
                 "source": "html",
                 "key": None,
                 "pattern": r"_etmc\.push\(|exacttarget\.com/"
@@ -205,7 +200,7 @@ TECH_RULES = [
     },
     {
         "name": "Brevo",
-        "categories": ["Marketing"],
+        "categories": ["Marketing", "Analytics"],
         "rules": [
             {
                 "source": "script_srcs",
@@ -216,6 +211,11 @@ TECH_RULES = [
                 "source": "script_srcs",
                 "key": None,
                 "pattern": r"cdn\.brevo\.com/"
+            },
+            {
+                "source": "cookies",
+                "key": "sib_cuid",
+                "pattern": r".+"
             },
             {
                 "source": "html",
@@ -253,27 +253,6 @@ TECH_RULES = [
                 "source": "html",
                 "key": None,
                 "pattern": r"createsend\.com/t/[a-z]/|class=[\"'][^\"']*js-cm-form"
-            }
-        ]
-    },
-    {
-        "name": "Emarsys",
-        "categories": ["Marketing"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"cdn\.scarabresearch\.com/js/"
-            },
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"static\.scarabresearch\.com/"
-            },
-            {
-                "source": "html",
-                "key": None,
-                "pattern": r"ScarabQueue\.push\("
             }
         ]
     },
@@ -395,27 +374,6 @@ TECH_RULES = [
                 "source": "html",
                 "key": None,
                 "pattern": r"rc-widget__|rechargepayments\.com/|data-recharge-"
-            }
-        ]
-    },
-    {
-        "name": "Gorgias",
-        "categories": ["Marketing"],
-        "rules": [
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"config\.gorgias\.chat/"
-            },
-            {
-                "source": "script_srcs",
-                "key": None,
-                "pattern": r"bundle\.gorgias\.chat/"
-            },
-            {
-                "source": "html",
-                "key": None,
-                "pattern": r"gorgias-chat-container|GorgiasChat\.init\("
             }
         ]
     },
