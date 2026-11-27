@@ -23,7 +23,7 @@ def detect_tech(responses: list[ProcessedResponse]) -> list[DomainResult]:
                     value = source_data.get(key)
                     if isinstance(value, list):
                         for item in value:
-                            match = re.search(pattern, item)
+                            match = re.search(pattern, item, re.IGNORECASE)
                             if match:
                                 proofs.append(Proof(
                                     source=source,
@@ -33,7 +33,7 @@ def detect_tech(responses: list[ProcessedResponse]) -> list[DomainResult]:
                                 ))
         
                     elif value is not None:
-                        match = re.search(pattern, value)
+                        match = re.search(pattern, value, re.IGNORECASE)
                         if match:
                             proofs.append(Proof(
                                 source=source,
@@ -43,7 +43,7 @@ def detect_tech(responses: list[ProcessedResponse]) -> list[DomainResult]:
                             ))
                 elif isinstance(source_data, list):
                     for value in source_data:
-                        match = re.search(pattern, value)
+                        match = re.search(pattern, value, re.IGNORECASE)
                         if match:
                             proofs.append(Proof(
                                 source=source,
@@ -52,7 +52,7 @@ def detect_tech(responses: list[ProcessedResponse]) -> list[DomainResult]:
                             ))
 
                 elif isinstance(source_data, str):
-                    match= re.search(pattern, source_data)
+                    match= re.search(pattern, source_data, re.IGNORECASE)
                     if match:
                          proofs.append(Proof(
                             source=source,
